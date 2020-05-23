@@ -1,3 +1,4 @@
+import 'package:covidmobx/controller/home_controller.dart';
 import 'package:covidmobx/pages/home.dart';
 import 'package:covidmobx/pages/splash.dart';
 import 'package:covidmobx/repository/covid_api_repository.dart';
@@ -12,7 +13,7 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
     Bind((i) => CovidApiRepository()), //usando bloc
-//    Bind((i) => HomeController()), //usando bloc
+    Bind((i) => HomeController()), //usando bloc
   ];
 
   // rotas do módulo
@@ -25,4 +26,5 @@ class AppModule extends MainModule {
   //adicione seu widget principal aqui
   @override
   Widget get bootstrap => AppWidget();
+
 }

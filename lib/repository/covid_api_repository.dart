@@ -16,15 +16,13 @@ class CovidApiRepository{
     }
   }
 
-  Future <Pais> getPais({String pais}) async {
-    Response response = await _dio.get('$url/coutries/$pais');
-
-    if(response.statusCode != 200){
+  Future<Pais> getPais({String pais}) async {
+    Response response = await _dio.get('$url/countries/$pais');
+    if (response.statusCode != 200) {
       throw Exception();
-    }else{
+    } else {
       return Pais.fromJson(response.data);
     }
-
   }
 
 }
