@@ -9,11 +9,11 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
 
-  startTimeOut(){
+  Timer startTimeOut(){
     return Timer(Duration(seconds: 5), changeScreen);
   }
 
-  changeScreen() async{
+  void changeScreen() async{
     Modular.to.pushReplacementNamed('/home');
   }
 

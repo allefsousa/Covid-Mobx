@@ -31,21 +31,22 @@ abstract class _HomeControllerBase with Store {
   Pais pais;
 
   @action
-  getInfoMundo() async {
+  Future getInfoMundo() async {
     mundo = await api.getMundo();
   }
 
   @action
-  getInfoPais({String nomePais = 'brazil'}) async {
+  Future getInfoPais({String nomePais = 'brazil'}) async {
     try {
       pais = await api.getPais(pais: nomePais);
-    } catch (exception) {
+    }
+    on Exception catch (e) {
       return Container();
     }
   }
 
   @action
-  changePage(int index) {
+   changePage(int index) {
     currentIndex = index;
   }
 }

@@ -16,7 +16,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Observer(builder: (_) {
       return Scaffold(
         backgroundColor: Colors.white,
-        body: (this.controller.mundo != null && this.controller.pais != null)
+        body: (controller.mundo != null && controller.pais != null)
             ? _buildBody()
             : Center(child: CircularProgressIndicator()),
         bottomNavigationBar: _buildBottomBar(),
@@ -25,7 +25,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   }
 
   Widget _buildBody() {
-    return (this.controller.currentIndex == 0)
+    return (controller.currentIndex == 0)
         ? _buildBodyMundo()
         : _buildBodyPais();
   }
@@ -216,8 +216,8 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return BottomNavigationBar(
       selectedItemColor: Colors.grey.shade800,
       unselectedItemColor: Colors.grey,
-      currentIndex: this.controller.currentIndex,
-      onTap: this.controller.changePage,
+      currentIndex: controller.currentIndex,
+      onTap: controller.changePage,
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.group_work),
@@ -244,9 +244,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             actions: <Widget>[
               RaisedButton(
                 onPressed: () {
-                  this.controller.getInfoPais(
+                  controller.getInfoPais(
                       nomePais:
-                      this.controller.textFieldController.text.toString());
+                      controller.textFieldController.text.toString());
                   Modular.to.pop();
                 },
                 child: Text(
@@ -255,11 +255,11 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 ),
                 color: const Color(0xFF1BC0C5),
               ),
-              new FlatButton(
-                child: new Text('CANCELAR'),
+               FlatButton(
+                child:  Text('CANCELAR'),
                 onPressed: () {
                   Modular.to.pop();
-                },
+                }
               )
             ],
           );
